@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_shered_preferences/src/presentation/widgets/theme_store_widget.dart';
 
 import 'src/presentation/views/home_page.dart';
 
@@ -11,12 +12,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomePage(),
+    return AnimatedBuilder(
+      animation: themeStore,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Todo List',
+          darkTheme: ThemeData(
+            primarySwatch: Colors.blue,
+            brightness: Brightness.dark,
+          ),
+          themeMode: themeStore.themeMode,
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: const HomePage(),
+        );
+      },
     );
   }
 }
