@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/theme_store_widget.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -10,6 +12,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Todos'),
+        actions: [
+          AnimatedBuilder(
+            animation: themeStore,
+            builder: (context, child) {
+              return Switch(
+                  value: themeStore.isDartTheme,
+                  onChanged: (value) {
+                    themeStore.shitchTheme();
+                  });
+            },
+          ),
+        ],
+      ),
+    );
   }
 }
