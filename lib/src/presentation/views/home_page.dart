@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_shered_preferences/src/my_app.dart';
 
 import '../widgets/theme_store_widget.dart';
 
@@ -27,6 +28,15 @@ class _HomePageState extends State<HomePage> {
             },
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(MyApp.ADD_TODO);
+        },
+        child: const Icon(
+          Icons.add,
+          size: 30,
+        ),
       ),
     );
   }
