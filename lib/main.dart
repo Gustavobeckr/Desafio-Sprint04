@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'src/presentation/views/home_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -16,19 +18,5 @@ class MyApp extends StatelessWidget {
       ),
       home: const HomePage(),
     );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
