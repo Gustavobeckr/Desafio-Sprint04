@@ -21,4 +21,9 @@ class TodoModel {
     data['keepOn'] = keepOn;
     return data;
   }
+
+  @override
+  String toString() {
+    return 'Title: $title\nDescription: $description\nDate: $date';
+  }
 }
